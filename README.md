@@ -15,5 +15,13 @@
 
 --- 
 
-## ERD
+## 📄ERD
+
+![erd_first.png](src/main/resources/static/images/erd_first.png)
+
+## API 명세
+
+[📕 API 명세 링크](https://sassy-spruce-64f.notion.site/ShoppingMall-API-223b92fe66cf80bdb5e9ea30a9878a1d)
+
+## 트러블 슈팅
 
