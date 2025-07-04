@@ -44,7 +44,7 @@ CREATE TABLE product
 );
 
 -- ORDER
-CREATE TABLE `order`
+CREATE TABLE orders
 (
     id          BIGINT AUTO_INCREMENT PRIMARY KEY,
     member_id   BIGINT       NOT NULL,
