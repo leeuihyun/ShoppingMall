@@ -39,6 +39,8 @@ public class ProductAdminController {
 
   @DeleteMapping("/{productId}")
   public ResponseEntity<Void> deleteProduct(@PathVariable Long productId) {
-    return null;
+    
+    productService.deleteProduct(productId);
+    return ResponseEntity.ok().build();
   }
 }

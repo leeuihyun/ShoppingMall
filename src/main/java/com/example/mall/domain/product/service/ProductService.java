@@ -47,7 +47,11 @@ public class ProductService {
 
   @Transactional
   public void deleteProduct(Long id) {
+    Product product = productRepository.findById(id)
+        .orElseThrow(() -> new ResponseStatusException(
+            HttpStatus.NOT_FOUND, "product not found"));
 
+    productRepository.delete(product);
   }
 
   @Transactional(readOnly = true)
