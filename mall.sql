@@ -1,3 +1,7 @@
+DROP DATABASE IF EXISTS mall;
+CREATE DATABASE IF NOT EXISTS mall;
+use mall;
+
 -- MEMBER
 CREATE TABLE member
 (
@@ -6,6 +10,7 @@ CREATE TABLE member
     email      VARCHAR(100) UNIQUE NOT NULL,
     password   VARCHAR(255)        NOT NULL,
     nickname   VARCHAR(100)        NOT NULL,
+    role       VARCHAR(20)         NOT NULL,
     phone      VARCHAR(20)         NOT NULL,
     gender     VARCHAR(10)         NOT NULL,
     is_deleted BOOLEAN DEFAULT FALSE,
@@ -70,6 +75,6 @@ CREATE TABLE order_detail
     deleted_at DATETIME,
     created_at DATETIME,
     updated_at DATETIME,
-    FOREIGN KEY (order_id) REFERENCES `order` (id),
+    FOREIGN KEY (order_id) REFERENCES orders (id),
     FOREIGN KEY (product_id) REFERENCES product (id)
 );
