@@ -1,5 +1,6 @@
 package com.example.mall.domain.product.service;
 
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -36,6 +37,7 @@ public class ProductService {
 	}
 
 	@Transactional
+	@CacheEvict(value = "product", key = "#id")
 	public ProductSaveResponse updateProduct(ProductSaveRequest request, Long id) {
 
 		Product product = productRepository.findById(id)
@@ -49,6 +51,7 @@ public class ProductService {
 	}
 
 	@Transactional
+	@CacheEvict(value = "product", key = "#id")
 	public void deleteProduct(Long id) {
 		Product product = productRepository.findById(id)
 			.orElseThrow(() -> new ResponseStatusException(
